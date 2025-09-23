@@ -1,6 +1,9 @@
 package msa.board.article.api;
 
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.web.client.RestClient;
 
 import lombok.AllArgsConstructor;
@@ -91,6 +94,35 @@ public class ArticleApiTest {
 
 		for (ArticleResponse article : response.getArticles()) {
 			System.out.println("article.getArticleId() = " + article.getArticleId());
+		}
+	}
+
+	@Test
+	void readAllInfiniteScrollTest() {
+		List<ArticleResponse> articles1 = restClient.get()
+				.uri("v1/articles/infinite-scroll?boardId=1&pageSize=5")
+				.retrieve()
+				.body(new ParameterizedTypeReference<List<ArticleResponse>>() {
+				});
+
+		System.out.println("first page");
+
+		for (ArticleResponse response : articles1) {
+			System.out.println("response.getArticleId() = " + response.getArticleId());
+		}
+
+		Long lastArticleId = articles1.getLast().getArticleId();
+
+		List<ArticleResponse> articles2 = restClient.get()
+				.uri("v1/articles/infinite-scroll?boardId=1&pageSize=5&lastArticleId=%s".formatted(lastArticleId))
+				.retrieve()
+				.body(new ParameterizedTypeReference<List<ArticleResponse>>() {
+				});
+
+		System.out.println("second page");
+
+		for (ArticleResponse response : articles2) {
+			System.out.println("response.getArticleId() = " + response.getArticleId());
 		}
 	}
 }
