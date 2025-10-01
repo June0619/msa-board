@@ -2,8 +2,10 @@ package msa.board.comment.service.response;
 
 import java.time.LocalDateTime;
 
+import lombok.Getter;
 import msa.board.comment.entity.Comment;
 
+@Getter
 public class CommentResponse {
 	private Long commentId;
 	private String content;
