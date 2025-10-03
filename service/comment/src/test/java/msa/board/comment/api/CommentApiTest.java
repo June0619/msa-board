@@ -1,11 +1,15 @@
 package msa.board.comment.api;
 
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.MediaType;
 import org.springframework.web.client.RestClient;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import msa.board.comment.service.response.CommentPageResponse;
 import msa.board.comment.service.response.CommentResponse;
 
 public class CommentApiTest {
@@ -50,6 +54,61 @@ public class CommentApiTest {
 		restClient.delete()
 				.uri("/v1/comments/{commentId}", 230899846806880256L)
 				.retrieve();
+	}
+
+	@Test
+	void readAll() {
+		CommentPageResponse response = restClient.get()
+				.uri("/v1/comments?articleId=1&page=1&pageSize=10")
+				.retrieve()
+				.body(CommentPageResponse.class);
+
+		System.out.println("response.getCommentCount() = " + response.getCommentCount());
+
+		for (CommentResponse comment : response.getComments()) {
+			if (!comment.getCommentId().equals(comment.getParentCommentId())) {
+				System.out.print("\t");
+			}
+			System.out.println("comment.getCommentId() = " + comment.getCommentId());
+		}
+	}
+
+	@Test
+	void readAllInfiniteScroll() {
+		List<CommentResponse> response1 = restClient.get()
+				.uri("/v1/comments/infinite-scroll?articleId=1&pageSize=5")
+				.retrieve()
+				.body(new ParameterizedTypeReference<List<CommentResponse>>() {
+				});
+
+		System.out.println("firstPage");
+
+		for (CommentResponse comment : response1) {
+			if (!comment.getCommentId().equals(comment.getParentCommentId())) {
+				System.out.print("\t");
+			}
+			System.out.println("comment.getCommentId() = " + comment.getCommentId());
+		}
+
+		Long lastCommentId = response1.getLast().getCommentId();
+		Long lastParentCommentId = response1.getLast().getParentCommentId();
+
+		List<CommentResponse> response2 = restClient.get()
+				.uri("/v1/comments/infinite-scroll?articleId=1&pageSize=5&lastCommentId=%s&lastParentCommentId=%s".formatted(
+						lastCommentId, lastParentCommentId
+				))
+				.retrieve()
+				.body(new ParameterizedTypeReference<List<CommentResponse>>() {
+				});
+
+		System.out.println("secondPage");
+
+		for (CommentResponse comment : response2) {
+			if (!comment.getCommentId().equals(comment.getParentCommentId())) {
+				System.out.print("\t");
+			}
+			System.out.println("comment.getCommentId() = " + comment.getCommentId());
+		}
 	}
 
 
