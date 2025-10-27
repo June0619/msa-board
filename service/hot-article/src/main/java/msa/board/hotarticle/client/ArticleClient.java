@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestClient;
 
 import jakarta.annotation.PostConstruct;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -36,6 +37,7 @@ public class ArticleClient {
 		return null;
 	}
 
+	@Getter
 	public static class ArticleResponse {
 		private Long articleId;
 		private String title;
