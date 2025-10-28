@@ -2,12 +2,10 @@ package msa.board.hotarticle.service.eventhandler;
 
 import org.springframework.stereotype.Component;
 
-import kuke.board.common.event.Event;
-import kuke.board.common.event.EventType;
-import kuke.board.common.event.payload.ArticleViewedEventPayload;
+import msa.board.common.event.Event;
+import msa.board.common.event.EventType;
+import msa.board.common.event.payload.ArticleViewedEventPayload;
 import lombok.RequiredArgsConstructor;
-import msa.board.hotarticle.repository.ArticleCommentCountRepository;
-import msa.board.hotarticle.repository.ArticleLikeCountRepository;
 import msa.board.hotarticle.repository.ArticleViewCountRepository;
 import msa.board.hotarticle.utils.TimeCalculatorUtils;
 

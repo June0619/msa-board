@@ -2,9 +2,9 @@ package msa.board.hotarticle.service.eventhandler;
 
 import org.springframework.stereotype.Component;
 
-import kuke.board.common.event.Event;
-import kuke.board.common.event.EventType;
-import kuke.board.common.event.payload.ArticleDeletedEventPayload;
+import msa.board.common.event.Event;
+import msa.board.common.event.EventType;
+import msa.board.common.event.payload.ArticleDeletedEventPayload;
 import lombok.RequiredArgsConstructor;
 import msa.board.hotarticle.repository.ArticleCreatedTimeRepository;
 import msa.board.hotarticle.repository.HotArticleListRepository;

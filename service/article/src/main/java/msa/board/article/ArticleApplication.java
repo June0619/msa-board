@@ -2,7 +2,9 @@ package msa.board.article;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 
+@EntityScan(basePackages = "kuke.board")
 @SpringBootApplication
 public class ArticleApplication {
 

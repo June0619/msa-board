@@ -1,8 +1,6 @@
 package msa.board.hotarticle.service;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.BDDMockito.*;
-import static org.mockito.Mockito.*;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
@@ -13,7 +11,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import kuke.board.common.event.Event;
+import msa.board.common.event.Event;
 import msa.board.hotarticle.repository.ArticleCreatedTimeRepository;
 import msa.board.hotarticle.repository.HotArticleListRepository;
 import msa.board.hotarticle.service.eventhandler.EventHandler;

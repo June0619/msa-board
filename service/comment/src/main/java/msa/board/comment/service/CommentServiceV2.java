@@ -2,12 +2,10 @@ package msa.board.comment.service;
 
 import static java.util.function.Predicate.*;
 
-import java.util.function.Predicate;
-
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import kuke.board.common.snowflake.Snowflake;
+import msa.board.common.snowflake.Snowflake;
 import lombok.RequiredArgsConstructor;
 import msa.board.comment.entity.CommentPath;
 import msa.board.comment.entity.CommentV2;

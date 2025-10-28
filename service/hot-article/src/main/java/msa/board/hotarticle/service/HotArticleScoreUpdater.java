@@ -6,8 +6,8 @@ import java.time.LocalDateTime;
 
 import org.springframework.stereotype.Component;
 
-import kuke.board.common.event.Event;
-import kuke.board.common.event.EventPayload;
+import msa.board.common.event.Event;
+import msa.board.common.event.EventPayload;
 import lombok.RequiredArgsConstructor;
 import msa.board.hotarticle.repository.ArticleCreatedTimeRepository;
 import msa.board.hotarticle.repository.HotArticleListRepository;

@@ -11,7 +11,7 @@ import org.springframework.transaction.support.TransactionTemplate;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
-import kuke.board.common.snowflake.Snowflake;
+import msa.board.common.snowflake.Snowflake;
 import msa.board.article.entity.Article;
 
 @SpringBootTest

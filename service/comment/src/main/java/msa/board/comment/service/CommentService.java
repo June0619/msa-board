@@ -7,7 +7,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import kuke.board.common.snowflake.Snowflake;
+import msa.board.common.snowflake.Snowflake;
 import lombok.RequiredArgsConstructor;
 import msa.board.comment.entity.Comment;
 import msa.board.comment.repository.CommentRepository;

@@ -4,9 +4,9 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.support.Acknowledgment;
 import org.springframework.stereotype.Component;
 
-import kuke.board.common.event.Event;
-import kuke.board.common.event.EventPayload;
-import kuke.board.common.event.EventType;
+import msa.board.common.event.Event;
+import msa.board.common.event.EventPayload;
+import msa.board.common.event.EventType;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import msa.board.hotarticle.service.HotArticleService;

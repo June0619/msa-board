@@ -2,8 +2,8 @@ package msa.board.hotarticle.service.eventhandler;
 
 import org.springframework.stereotype.Component;
 
-import kuke.board.common.event.Event;
-import kuke.board.common.event.payload.CommentCreatedEventPayload;
+import msa.board.common.event.Event;
+import msa.board.common.event.payload.CommentCreatedEventPayload;
 import lombok.RequiredArgsConstructor;
 import msa.board.hotarticle.repository.ArticleCommentCountRepository;
 

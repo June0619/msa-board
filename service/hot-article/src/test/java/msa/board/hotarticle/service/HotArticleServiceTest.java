@@ -1,7 +1,6 @@
 package msa.board.hotarticle.service;
 
 import static org.mockito.BDDMockito.*;
-import static org.mockito.Mockito.*;
 
 import java.util.List;
 import java.util.stream.Stream;
@@ -12,8 +11,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import kuke.board.common.event.Event;
-import kuke.board.common.event.EventType;
+import msa.board.common.event.Event;
+import msa.board.common.event.EventType;
 import msa.board.hotarticle.service.eventhandler.EventHandler;
 
 @ExtendWith(MockitoExtension.class)
