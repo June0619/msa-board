@@ -16,4 +16,4 @@ spring:
       enable-auto-commit: false
 endpoints:
   jwjung-board-article-service:
-    url: http://127.0.0.1:9000
+    url: http://127.0.0.1:8999
