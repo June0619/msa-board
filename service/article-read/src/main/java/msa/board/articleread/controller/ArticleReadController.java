@@ -5,9 +5,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import msa.board.articleread.service.ArticleReadService;
 import msa.board.articleread.service.response.ArticleReadResponse;
 
+@Slf4j
 @RestController
 @RequiredArgsConstructor
 public class ArticleReadController {

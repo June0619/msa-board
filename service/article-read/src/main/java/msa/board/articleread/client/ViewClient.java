@@ -29,7 +29,7 @@ public class ViewClient {
 	// 레디스에 데이터가 있었다면 그 데이터를 그대로 반환한다.
 	@Cacheable(key = "#articleId", value = "articleViewCount")
 	public long count(Long articleId) {
-		log.info("ViewClient.count] articleId={}", articleId);
+		log.info("[ViewClient.count] articleId={}", articleId);
 		try {
 			return restClient.get()
 					.uri("/v1/article-views/articles/{articleId}/count", articleId)

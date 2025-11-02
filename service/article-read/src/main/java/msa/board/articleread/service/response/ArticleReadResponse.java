@@ -2,8 +2,10 @@ package msa.board.articleread.service.response;
 
 import java.time.LocalDateTime;
 
+import lombok.Data;
 import msa.board.articleread.repository.ArticleQueryModel;
 
+@Data
 public class ArticleReadResponse {
 	private Long articleId;
 	private String title;
