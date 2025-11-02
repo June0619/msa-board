@@ -6,6 +6,7 @@ import lombok.Getter;
 import msa.board.articleread.client.ArticleClient;
 import msa.board.common.event.payload.ArticleCreatedEventPayload;
 import msa.board.common.event.payload.ArticleLikedEventPayload;
+import msa.board.common.event.payload.ArticleUnlikedEventPayload;
 import msa.board.common.event.payload.ArticleUpdatedEventPayload;
 import msa.board.common.event.payload.CommentCreatedEventPayload;
 import msa.board.common.event.payload.CommentDeletedEventPayload;
@@ -21,6 +22,7 @@ public class ArticleQueryModel {
 	private LocalDateTime modifiedAt;
 	private Long articleCommentCount;
 	private Long articleLikeCount;
+
 
 	public static ArticleQueryModel create(ArticleCreatedEventPayload payload) {
 		ArticleQueryModel articleQueryModel = new ArticleQueryModel();
@@ -59,6 +61,10 @@ public class ArticleQueryModel {
 	}
 
 	public void updateBy(ArticleLikedEventPayload payload) {
+		this.articleLikeCount = payload.getArticleLikeCount();
+	}
+
+	public void updateBy(ArticleUnlikedEventPayload payload) {
 		this.articleLikeCount = payload.getArticleLikeCount();
 	}
 

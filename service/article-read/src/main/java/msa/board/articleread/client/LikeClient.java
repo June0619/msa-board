@@ -23,7 +23,7 @@ public class LikeClient {
 		restClient = RestClient.create(commentServiceUrl);
 	}
 
-	public long read(Long articleId) {
+	public long count(Long articleId) {
 		try {
 			return restClient.get()
 					.uri("/v1/article-likes/articles/{articleId}/count")
