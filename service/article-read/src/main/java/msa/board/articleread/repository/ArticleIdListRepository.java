@@ -13,7 +13,7 @@ import lombok.RequiredArgsConstructor;
 
 @Repository
 @RequiredArgsConstructor
-public class ArticleReadRepository {
+public class ArticleIdListRepository {
 	private final StringRedisTemplate redisTemplate;
 
 	// aritlce-read::board::{boardId}::article-list

@@ -1,7 +1,14 @@
 package msa.board.articleread.repository;
 
+import static java.util.stream.Collectors.*;
+
 import java.time.Duration;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 import java.util.Optional;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Repository;
@@ -43,5 +50,14 @@ public class ArticleQueryModelRepository {
 
 	private String generateKey(Long articleId) {
 		return KEY_FORMAT.formatted(articleId);
+	}
+
+	public Map<Long, ArticleQueryModel> readAll(List<Long> articleIds) {
+		List<String> keyList = articleIds.stream().map(this::generateKey).toList();
+		return redisTemplate.opsForValue().multiGet(keyList).stream()
+				.filter(Objects::nonNull)
+				.map(json -> DataSerializer.deserialize(json, ArticleQueryModel.class))
+				.collect(toMap(ArticleQueryModel::getArticleId, Function.identity()));
+
 	}
 }
