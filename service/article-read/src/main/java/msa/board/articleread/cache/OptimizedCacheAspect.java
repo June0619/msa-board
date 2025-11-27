@@ -15,7 +15,7 @@ import lombok.RequiredArgsConstructor;
 public class OptimizedCacheAspect {
 	private final OptimizedCacheManager optimizedCacheManager;
 
-	@Around("@annotation(OptimizedCacheable")
+	@Around("@annotation(OptimizedCacheable)")
 	public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
 		OptimizedCacheable cacheable = findAnnotation(joinPoint);
 		return optimizedCacheManager.process(
